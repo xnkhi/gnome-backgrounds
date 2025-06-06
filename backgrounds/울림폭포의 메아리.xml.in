@@ -1,0 +1,14 @@
+        <?xml version="1.0"?>
+        <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+        <wallpapers>
+        <wallpaper deleted="false">
+        <name>울림폭포의 메아리</name>
+        <filename>@BACKGROUNDDIR@/울림폭포의 메아리.jpg</filename>
+        <filename-dark>@BACKGROUNDDIR@/울림폭포의 메아리.jpg</filename-dark>
+        <options>zoom</options>
+        <shade_type>solid</shade_type>
+        <pcolor>#000000</pcolor>
+        <scolor>#000000</scolor>
+        </wallpaper>
+        </wallpapers>
+    
