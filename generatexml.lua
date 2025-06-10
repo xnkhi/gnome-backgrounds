@@ -27,24 +27,25 @@ local files = SplitString(content, "\n")
 io.close(logs)
 
 for _,file in ipairs(files) do
-    local filename = retrieveFileName(file)
+    if file ~= "meson.build" then
+        local filename = retrieveFileName(file)
     print(file .. "  |  " .. filename)
-    local xml = string.format([[
-        <?xml version="1.0"?>
-        <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
-        <wallpapers>
-        <wallpaper deleted="false">
-        <name>%s</name>
-        <filename>@BACKGROUNDDIR@/%s</filename>
-        <filename-dark>@BACKGROUNDDIR@/%s</filename-dark>
-        <options>zoom</options>
-        <shade_type>solid</shade_type>
-        <pcolor>#000000</pcolor>
-        <scolor>#000000</scolor>
-        </wallpaper>
-        </wallpapers>
-    ]], filename, file, file)
+    local xml = string.format([[<?xml version="1.0"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper deleted="false">
+    <name>%s</name>
+    <filename>@BACKGROUNDDIR@/%s</filename>
+    <filename-dark>@BACKGROUNDDIR@/%s</filename-dark>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#000000</pcolor>
+    <scolor>#000000</scolor>
+  </wallpaper>
+</wallpapers>]], filename, file, file)
     local xmlfile = io.open("backgrounds/" .. filename .. ".xml.in", "w")
     xmlfile:write(xml)
     io.close(xmlfile)
+    end
+    
 end
